@@ -32,7 +32,10 @@ const Hero = () => {
   );
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden neural-grid">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Neural grid background */}
+      <div className="absolute inset-0 neural-grid" />
+      
       {/* Animated background particles */}
       {Array.from({ length: 8 }).map((_, i) => (
         <FloatingParticle key={i} delay={i * 0.5} size={4 + Math.random() * 8} />
@@ -48,7 +51,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-on-scroll">
+          <div className="space-y-8">
             <div className="flex items-center space-x-3 mb-6">
               <Brain className="h-8 w-8 text-primary animate-float-gentle" />
               <span className="text-lg font-medium tracking-wider text-primary">ECHOS</span>
