@@ -2,41 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Echos - Enterprise Digital Brain Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark tech theme with neural network inspired colors */
+    --background: 220 27% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 27% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 27% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neural blue primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 27% 8%;
+    --primary-glow: 217 91% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cognitive gray secondary */
+    --secondary: 220 17% 20%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 17% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Intelligence accent */
+    --accent: 267 84% 65%;
+    --accent-foreground: 220 27% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 17% 20%;
+    --input: 220 17% 20%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom design tokens for Echos */
+    --neural-blue: 217 91% 60%;
+    --cognitive-purple: 267 84% 65%;
+    --quantum-green: 142 76% 36%;
+    --data-orange: 31 100% 50%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--neural-blue)), hsl(var(--cognitive-purple)));
+    --gradient-neural: linear-gradient(45deg, hsl(var(--neural-blue) / 0.2), hsl(var(--cognitive-purple) / 0.2));
+    --gradient-data: linear-gradient(90deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+    
+    /* Shadows with glow effects */
+    --shadow-neural: 0 20px 40px -10px hsl(var(--neural-blue) / 0.3);
+    --shadow-glow: 0 0 60px hsl(var(--primary) / 0.4);
+    --shadow-card: 0 10px 30px -5px hsl(220 27% 5% / 0.5);
+    
+    /* Animation curves */
+    --ease-neural: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Spacing for neural networks */
+    --space-neural: 3rem;
+    --space-synapse: 6rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +127,149 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
   }
+}
+
+@layer components {
+  /* Neural Network Animation */
+  .neural-grid {
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--neural-blue) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--cognitive-purple) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--quantum-green) / 0.05) 0%, transparent 50%);
+    background-size: 100vw 100vh;
+    animation: neural-pulse 8s ease-in-out infinite;
+  }
+  
+  .data-flow {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--primary) / 0.1) 50%, 
+      transparent 100%);
+    animation: flow-data 3s linear infinite;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+  
+  .neural-border {
+    border: 1px solid hsl(var(--border));
+    background: var(--gradient-neural);
+    backdrop-filter: blur(10px);
+  }
+  
+  .hover-lift {
+    transition: all 0.3s var(--ease-neural);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-neural);
+  }
+  
+  /* Animated background particles */
+  .particle {
+    position: absolute;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-element {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-neural {
+    background: var(--gradient-neural);
+  }
+  
+  .gradient-data {
+    background: var(--gradient-data);
+  }
+  
+  .shadow-neural {
+    box-shadow: var(--shadow-neural);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes neural-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes flow-data {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s var(--ease-neural);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
