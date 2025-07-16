@@ -30,7 +30,7 @@ const About = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
       {/* Background neural network effect */}
       <div className="absolute inset-0">
         {Array.from({ length: 6 }).map((_, i) => (
@@ -117,44 +117,46 @@ const About = () => {
           </div>
 
           {/* Call to Action */}
-          <Card className="neural-border overflow-hidden animate-on-scroll">
-            <div className="gradient-hero p-px rounded-2xl">
-              <CardContent className="bg-background rounded-2xl p-12 text-center space-y-8">
-                <h2 className="text-4xl lg:text-5xl font-bold">
-                  Let's build your{' '}
-                  <span className="glow-text gradient-hero bg-clip-text text-transparent">
-                    digital brain
-                  </span>
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Partner with Echos to build systems that not only scale—but think.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                  <div className="flex items-center justify-center space-x-3 gradient-neural p-4 rounded-xl">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <div>
-                      <div className="text-sm text-muted-foreground">Email</div>
-                      <div className="font-medium">hello@echo-s.ai</div>
+          <div id="contact">
+            <Card className="neural-border overflow-hidden animate-on-scroll">
+              <div className="gradient-hero p-px rounded-2xl">
+                <CardContent className="bg-background rounded-2xl p-12 text-center space-y-8">
+                  <h2 className="text-4xl lg:text-5xl font-bold">
+                    Let's build your{' '}
+                    <span className="glow-text gradient-hero bg-clip-text text-transparent">
+                      digital brain
+                    </span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Partner with Echos to build systems that not only scale—but think.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <div className="flex items-center justify-center space-x-3 gradient-neural p-4 rounded-xl">
+                      <Mail className="h-5 w-5 text-primary" />
+                      <div>
+                        <div className="text-sm text-muted-foreground">Email</div>
+                        <div className="font-medium">hello@echo-s.ai</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center space-x-3 gradient-neural p-4 rounded-xl">
+                      <Globe className="h-5 w-5 text-accent" />
+                      <div>
+                        <div className="text-sm text-muted-foreground">Website</div>
+                        <div className="font-medium">www.echo-s.ai</div>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center space-x-3 gradient-neural p-4 rounded-xl">
-                    <Globe className="h-5 w-5 text-accent" />
-                    <div>
-                      <div className="text-sm text-muted-foreground">Website</div>
-                      <div className="font-medium">www.echo-s.ai</div>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="data-flow h-px w-32 mx-auto opacity-50" />
-                
-                <p className="text-muted-foreground italic">
-                  "The most powerful systems don't just store data—they amplify intelligence."
-                </p>
-              </CardContent>
-            </div>
-          </Card>
+                  <div className="data-flow h-px w-32 mx-auto opacity-50" />
+                  
+                  <p className="text-muted-foreground italic">
+                    "The most powerful systems don't just store data—they amplify intelligence."
+                  </p>
+                </CardContent>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

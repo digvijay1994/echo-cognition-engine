@@ -32,7 +32,7 @@ const Hero = () => {
   );
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">{/* Added pt-16 for nav space */}
       {/* Neural grid background */}
       <div className="absolute inset-0 neural-grid" />
       

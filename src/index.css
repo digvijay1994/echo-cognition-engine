@@ -146,7 +146,7 @@
   .data-flow {
     background: linear-gradient(90deg, 
       transparent 0%, 
-      hsl(var(--primary) / 0.1) 50%, 
+      hsl(var(--primary) / 0.4) 50%, 
       transparent 100%);
     animation: flow-data 3s linear infinite;
   }

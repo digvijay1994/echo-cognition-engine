@@ -63,7 +63,7 @@ const Services = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 relative">
+    <section id="services" ref={sectionRef} className="py-24 px-6 relative">
       <div className="absolute inset-0 gradient-data opacity-20" />
       
       <div className="container mx-auto relative z-10">

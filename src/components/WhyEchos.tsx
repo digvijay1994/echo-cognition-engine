@@ -57,7 +57,7 @@ const WhyEchos = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="why-echos" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 neural-grid opacity-30" />
       
