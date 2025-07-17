@@ -65,14 +65,14 @@ const WhyEchos = () => {
       <div className="absolute inset-0 neural-grid opacity-30" />
       
       <div className="container mx-auto relative z-10">
-        <div className="text-center mb-16 space-y-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold animate-on-scroll">
+        <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold animate-on-scroll px-4">
             Why enterprises{' '}
             <span className={`slide-in-text glow-text ${headingAnimated ? 'animate' : ''}`}>
               choose us
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-on-scroll">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-on-scroll px-4">
             The enterprise landscape is complex. Data is fragmented. Decision-making is slow. 
             We don't just plug in tools—we engineer cognition into your core systems.
           </p>
@@ -102,11 +102,11 @@ const WhyEchos = () => {
           })}
         </div>
 
-        <div className="mt-20 text-center animate-on-scroll">
-          <div className="inline-flex items-center space-x-4 gradient-neural px-8 py-4 rounded-full">
-            <span className="text-lg font-medium">With Echos, you get more than transformation.</span>
-            <div className="data-flow h-px w-16" />
-            <span className="text-lg font-medium glow-text">You get systems that think.</span>
+        <div className="mt-12 sm:mt-20 text-center animate-on-scroll px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 gradient-neural px-4 sm:px-8 py-4 rounded-full max-w-4xl mx-auto">
+            <span className="text-sm sm:text-lg font-medium text-center">With Echos, you get more than transformation.</span>
+            <div className="data-flow h-px w-8 sm:w-16 hidden sm:block" />
+            <span className="text-sm sm:text-lg font-medium glow-text text-center">You get systems that think.</span>
           </div>
         </div>
       </div>

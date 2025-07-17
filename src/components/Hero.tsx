@@ -87,16 +87,6 @@ const Hero = () => {
               trusted builders who've designed and scaled AI products from zero to one across industries.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <Button size="lg" className="gradient-hero text-black font-semibold hover:shadow-glow transition-all duration-300">
-                Let's Build Your Digital Brain
-                <Zap className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="lg" className="neural-border hover-lift">
-                Learn More
-                <ChevronDown className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
 
             <div className="flex items-center space-x-8 pt-8">
               <div className="flex items-center space-x-2">

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Brain, Menu, X } from 'lucide-react';
-import echosLogo from '@/assets/echos-logo.png';
+import echosLogo from '/lovable-uploads/85e4db40-1b09-4c87-b490-e055ee73662c.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,16 +59,6 @@ const Navigation = () => {
           {/* Spacer for center alignment */}
           <div className="flex-1"></div>
 
-          {/* CTA Button */}
-          <div className="flex items-center">
-            <Button 
-              size="sm" 
-              className="gradient-hero text-black font-medium hover:shadow-glow transition-all duration-300"
-              onClick={() => scrollToSection('contact')}
-            >
-              Get Started
-            </Button>
-          </div>
         </div>
 
       </div>
