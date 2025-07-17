@@ -34,26 +34,12 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
-            <div className="relative">
-              <img 
-                src={echosLogo} 
-                alt="Echos Logo" 
-                className="h-10 w-10 rounded-lg"
-                onError={(e) => {
-                  // Fallback to icon if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                }}
-              />
-              <div className="hidden p-2 rounded-lg bg-gradient-to-br from-primary to-accent">
-                <Brain className="h-6 w-6 text-white" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-wide text-primary">ECHOS</span>
-              <span className="text-xs text-muted-foreground hidden sm:block">Digital Brain</span>
-            </div>
+          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
+            <img 
+              src={echosLogo} 
+              alt="Echos Logo" 
+              className="h-12 w-auto max-w-[120px] object-contain"
+            />
           </div>
 
           {/* Spacer for center alignment */}
