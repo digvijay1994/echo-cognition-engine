@@ -51,6 +51,8 @@
     --gradient-hero: linear-gradient(135deg, hsl(var(--neural-blue)), hsl(var(--cognitive-purple)));
     --gradient-neural: linear-gradient(45deg, hsl(var(--neural-blue) / 0.2), hsl(var(--cognitive-purple) / 0.2));
     --gradient-data: linear-gradient(90deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+    --gradient-text: linear-gradient(135deg, hsl(var(--neural-blue)), hsl(var(--cognitive-purple)));
+    --gradient-text-glow: linear-gradient(135deg, hsl(var(--neural-blue)), hsl(var(--cognitive-purple)) 50%, hsl(var(--neural-blue)));
     
     /* Shadows with glow effects */
     --shadow-neural: 0 20px 40px -10px hsl(var(--neural-blue) / 0.3);
@@ -181,6 +183,20 @@
   .floating-element {
     animation: float-gentle 4s ease-in-out infinite;
   }
+
+  /* Slide-in text animation like Palantir */
+  .slide-in-text {
+    background: var(--gradient-text-glow);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slide-gradient 3s ease-out forwards;
+  }
+
+  .slide-in-text.animate {
+    animation: slide-gradient 2s ease-out forwards;
+  }
 }
 
 @layer utilities {
@@ -206,6 +222,13 @@
   
   .shadow-card {
     box-shadow: var(--shadow-card);
+  }
+
+  .text-gradient-hero {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
@@ -259,6 +282,15 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes slide-gradient {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 

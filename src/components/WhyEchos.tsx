@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Brain, Zap, Network, Target } from 'lucide-react';
 
 const WhyEchos = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [headingAnimated, setHeadingAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -16,6 +17,8 @@ const WhyEchos = () => {
                 el.classList.add('visible');
               }, index * 200);
             });
+            // Trigger heading animation
+            setHeadingAnimated(true);
           }
         });
       },
@@ -57,25 +60,25 @@ const WhyEchos = () => {
   ];
 
   return (
-    <section id="why-echos" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="why-echos" ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 neural-grid opacity-30" />
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16 space-y-6">
-          <h2 className="text-4xl lg:text-6xl font-bold animate-on-scroll">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold animate-on-scroll">
             Why enterprises{' '}
-            <span className="glow-text gradient-hero bg-clip-text text-transparent">
+            <span className={`slide-in-text glow-text ${headingAnimated ? 'animate' : ''}`}>
               choose us
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-on-scroll">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-on-scroll">
             The enterprise landscape is complex. Data is fragmented. Decision-making is slow. 
             We don't just plug in tools—we engineer cognition into your core systems.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (

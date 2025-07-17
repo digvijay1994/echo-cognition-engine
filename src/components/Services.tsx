@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Database, Cpu, Settings, Rocket } from 'lucide-react';
 import foundryImage from '@/assets/foundry-interface.jpg';
@@ -6,6 +6,7 @@ import enterpriseImage from '@/assets/enterprise-tech.jpg';
 
 const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [headingAnimated, setHeadingAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,6 +19,7 @@ const Services = () => {
                 el.classList.add('visible');
               }, index * 150);
             });
+            setHeadingAnimated(true);
           }
         });
       },
@@ -63,23 +65,23 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 px-6 relative">
+    <section id="services" ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative">
       <div className="absolute inset-0 gradient-data opacity-20" />
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16 space-y-6">
-          <h2 className="text-4xl lg:text-6xl font-bold animate-on-scroll">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold animate-on-scroll">
             What we{' '}
-            <span className="glow-text gradient-hero bg-clip-text text-transparent">
+            <span className={`slide-in-text glow-text ${headingAnimated ? 'animate' : ''}`}>
               do
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-on-scroll">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto animate-on-scroll">
             The Engines of Tomorrow, Working for You Today
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote, Globe, Users, Mail } from 'lucide-react';
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [headingAnimated, setHeadingAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -16,6 +17,7 @@ const About = () => {
                 el.classList.add('visible');
               }, index * 200);
             });
+            setHeadingAnimated(true);
           }
         });
       },
@@ -30,7 +32,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Background neural network effect */}
       <div className="absolute inset-0">
         {Array.from({ length: 6 }).map((_, i) => (
@@ -60,9 +62,9 @@ const About = () => {
                   </div>
                 </div>
                 <div className="space-y-6">
-                  <h2 className="text-3xl lg:text-4xl font-bold">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
                     Why{' '}
-                    <span className="glow-text gradient-hero bg-clip-text text-transparent">
+                    <span className={`slide-in-text glow-text ${headingAnimated ? 'animate' : ''}`}>
                       "Echos"?
                     </span>
                   </h2>
@@ -82,7 +84,7 @@ const About = () => {
           </Card>
 
           {/* Global Presence */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <Card className="neural-border hover-lift animate-on-scroll">
               <CardContent className="p-8 text-center space-y-6">
                 <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary to-purple-500 shadow-glow">
@@ -121,13 +123,13 @@ const About = () => {
             <Card className="neural-border overflow-hidden animate-on-scroll">
               <div className="gradient-hero p-px rounded-2xl">
                 <CardContent className="bg-background rounded-2xl p-12 text-center space-y-8">
-                  <h2 className="text-4xl lg:text-5xl font-bold">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Let's build your{' '}
-                    <span className="glow-text gradient-hero bg-clip-text text-transparent">
+                    <span className="slide-in-text glow-text">
                       digital brain
                     </span>
                   </h2>
-                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
                     Partner with Echos to build systems that not only scale—but think.
                   </p>
                   

@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Brain, Zap, Network } from 'lucide-react';
 import heroImage from '@/assets/hero-digital-brain.jpg';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [textAnimated, setTextAnimated] = useState(false);
+  const textRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -16,6 +18,14 @@ const Hero = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    // Trigger text animation after component mounts
+    const timer = setTimeout(() => {
+      setTextAnimated(true);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   const FloatingParticle = ({ delay, size }: { delay: number; size: number }) => (
@@ -49,26 +59,29 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-8">
             <div className="flex items-center space-x-3 mb-6">
               <Brain className="h-8 w-8 text-primary animate-float-gentle" />
               <span className="text-lg font-medium tracking-wider text-primary">ECHOS</span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
               We build the{' '}
-              <span className="glow-text gradient-hero bg-clip-text text-transparent">
+              <span 
+                ref={textRef}
+                className={`slide-in-text glow-text ${textAnimated ? 'animate' : ''}`}
+              >
                 digital brain
               </span>
             </h1>
 
-            <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-light">
               thinking system for the enterprise
             </h2>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Echos is a deep tech services and solutions company on a mission to rewire how 
               enterprises think, decide, and scale. We are official partners of Palantir and 
               trusted builders who've designed and scaled AI products from zero to one across industries.
